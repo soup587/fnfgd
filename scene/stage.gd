@@ -48,7 +48,6 @@ func _ready():
 	currentNote = chart[0]
 	
 	hud = $HUD
-	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
