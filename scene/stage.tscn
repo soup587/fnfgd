@@ -1,0 +1,100 @@
+[gd_scene load_steps=7 format=3 uid="uid://b75ojmw5teec2"]
+
+[ext_resource type="Script" path="res://scene/stage.gd" id="1_v78q4"]
+[ext_resource type="AudioStream" uid="uid://od5c12v65rxv" path="res://assets/music/tutorial/Inst.ogg" id="2_hrvei"]
+[ext_resource type="Texture2D" uid="uid://d1ovfiw3kh85s" path="res://assets/ui/arrow.svg" id="2_pabcf"]
+[ext_resource type="AudioStream" uid="uid://p1wwfrwf78ix" path="res://assets/music/tutorial/Voices-bf.ogg" id="3_ykoyj"]
+[ext_resource type="AudioStream" uid="uid://yicsne4j70no" path="res://assets/music/tutorial/Voices-gf.ogg" id="4_aio1v"]
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_vramb"]
+stream_count = 3
+stream_0/stream = ExtResource("2_hrvei")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("3_ykoyj")
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("4_aio1v")
+stream_2/volume = 0.0
+
+[node name="Stage" type="Node2D"]
+script = ExtResource("1_v78q4")
+
+[node name="Song" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamSynchronized_vramb")
+volume_db = -25.622
+autoplay = true
+mix_target = 1
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(232, -410)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="Targets" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -384.0
+offset_top = 64.0
+offset_right = -384.0
+offset_bottom = 64.0
+grow_horizontal = 0
+
+[node name="LeftTarget" type="TextureRect" parent="HUD/Targets"]
+modulate = Color(0.162066, 0.162066, 0.162066, 1)
+layout_mode = 1
+offset_left = -280.0
+offset_right = -152.0
+offset_bottom = 128.0
+rotation = 4.71239
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("2_pabcf")
+
+[node name="DownTarget" type="TextureRect" parent="HUD/Targets"]
+modulate = Color(0.162066, 0.162066, 0.162066, 1)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -136.0
+offset_right = -8.0
+offset_bottom = 128.0
+grow_horizontal = 0
+rotation = 3.14159
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("2_pabcf")
+
+[node name="UpTarget" type="TextureRect" parent="HUD/Targets"]
+modulate = Color(0.162066, 0.162066, 0.162066, 1)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 8.0
+offset_right = 136.0
+offset_bottom = 128.0
+grow_horizontal = 0
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("2_pabcf")
+
+[node name="RightTarget" type="TextureRect" parent="HUD/Targets"]
+modulate = Color(0.162066, 0.162066, 0.162066, 1)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 152.0
+offset_right = 280.0
+offset_bottom = 128.0
+grow_horizontal = 0
+rotation = 1.5708
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("2_pabcf")
+
+[node name="NoteLines" type="Node2D" parent="HUD"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

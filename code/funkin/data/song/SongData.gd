@@ -1,0 +1,4 @@
+
+
+func getScrollSpeed():
+	return "scrollSpeet"
