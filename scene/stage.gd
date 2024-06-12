@@ -26,6 +26,7 @@ func spawnArrow(direction = 0):
 	arrow.dir = direction
 	$HUD/NoteLines.add_child(arrow)
 	return arrow
+	
 func loadFile(location):
 	var file = FileAccess.open(location, FileAccess.READ)
 	if FileAccess.get_open_error():
@@ -43,7 +44,7 @@ var chart
 var currentNoteNum = 0
 var currentNote
 func _ready():
-	chart = parseChart(loadFile("user://tutorial-chart.json"))["notes"][difficulty]
+	chart = parseChart(loadFile("res://assets/music/tutorial/tutorial-chart.json"))["notes"][difficulty]
 	currentNote = chart[0]
 	
 	hud = $HUD
